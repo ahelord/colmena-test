@@ -1,10 +1,10 @@
 {
-  "name": "nest-boilerplate",
+  "name": "colmenta-test",
   "version": "0.0.1",
   "private": true,
   "description": "NestJS v8 boilerplate",
   "license": "UNLICENSED",
-  "author": "Samuel MARLHENS",
+  "author": "",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -12,7 +12,6 @@
     "eslint:fix": "npm run eslint:check -- --fix",
     "lint": "npm run eslint:check && npm run prettier:check",
     "precommit": "lint-staged && npm run lint && npm run test",
-    "prepare": "husky install",
     "prepush": "npm run test",
     "prettier:check": "prettier --check ./**/*.{ts,js,json,*rc}",
     "prettier:write": "prettier --write ./**/*.{ts,js,json,*rc}",
@@ -21,6 +20,7 @@
     "start:debug": "nest start --debug --watch",
     "start:dev": "nest start --watch",
     "start:prod": "node dist/main",
+    "start:container": "npm run typeorm:migration:run && node dist/main",
     "test": "jest --passWithNoTests --maxWorkers=1",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
@@ -39,12 +39,16 @@
     "@nestjs/platform-express": "^8.4.5",
     "@nestjs/swagger": "^5.2.1",
     "@nestjs/typeorm": "^8.0.4",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "joi": "^17.6.0",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.5",
     "swagger-ui-express": "^4.4.0",
+    "ts-node": "^10.8.0",
+    "tsconfig-paths": "^3.14.1",
     "typeorm": "^0.2.45"
   },
   "devDependencies": {
@@ -64,7 +68,6 @@
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-when": "^3.5.1",
     "lint-staged": "^12.4.2",
@@ -72,12 +75,11 @@
     "supertest": "^6.2.3",
     "ts-jest": "^27.1.5",
     "ts-loader": "^9.3.0",
-    "ts-node": "^10.8.0",
-    "tsconfig-paths": "^3.14.1",
     "typescript": "^4.7.2"
   },
   "optionalDependencies": {
-    "fsevents": "^2.3.2"
+    "fsevents": "^2.3.2",
+    "husky": "^7.0.4"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || >=16.0.0",

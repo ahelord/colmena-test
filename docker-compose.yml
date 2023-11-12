@@ -2,37 +2,33 @@ version: '3.5'
 
 services:
   postgres:
-    container_name: postgres_container
+    container_name: postgres-colmena
     image: postgres:14.3-alpine3.15
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
     ports:
-      - '5433:5432'
+      - '5434:5432'
     networks:
-      - postgres
+      - colmena-network
     restart: unless-stopped
-
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4:6.9
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - pgadmin:/root/.pgadmin
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    image: nodejs
+    container_name: nodejs-colmena
+    restart: unless-stopped
+    env_file: .env.docker
     ports:
-      - '5051:80'
+      - '8001:8080'
     networks:
-      - postgres
-    restart: unless-stopped
-
+      - colmena-network
 networks:
-  postgres:
+  colmena-network:
     driver: bridge
 
 volumes:
