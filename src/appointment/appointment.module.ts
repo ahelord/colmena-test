@@ -5,10 +5,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppointmentRepository } from './repositories/appointment.repository';
 import { PatientRepository } from '../patient/repositories/patient.repository';
 import { DoctorRepository } from '../doctor/repositories/doctor.repository';
+import { MedicalOrderController } from './medical-order.controller';
+import { MedicalOrderService } from './medical-order.service';
+import { MedicalOrderRepository } from './repositories/medical-order.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([AppointmentRepository, PatientRepository, DoctorRepository])],
-  controllers: [AppointmentController],
-  providers: [AppointmentService],
+  imports: [
+    TypeOrmModule.forFeature([AppointmentRepository, PatientRepository, DoctorRepository, MedicalOrderRepository]),
+  ],
+  controllers: [AppointmentController, MedicalOrderController],
+  providers: [AppointmentService, MedicalOrderService],
 })
 export class AppointmentModule {}

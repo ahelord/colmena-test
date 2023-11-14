@@ -1,7 +1,16 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Doctor } from '../../doctor/entities/doctor.entity';
 import { Patient } from '../../patient/entities/patient.entity';
 import { AppointmentStatus } from './appointment-status.entity';
+import { MedicalOrder } from './medical-order.entity';
 
 @Entity('appointment')
 export class Appointment {
@@ -19,6 +28,9 @@ export class Appointment {
 
   @Column({ nullable: false })
   scheduleAt: Date;
+
+  @OneToMany(() => MedicalOrder, medicalOrder => medicalOrder.appointment)
+  medicalOrders: MedicalOrder[];
 
   @CreateDateColumn()
   createdAt: Date;
