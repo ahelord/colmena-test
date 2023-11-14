@@ -1,22 +1,28 @@
 import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import './config/dotenv.config';
+import { Logger, ValidationPipe } from '@nestjs/common';
+import TypeormConfig from './config/typeorm.config';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import {ResponseInterceptor} from "./common/interceptors/response.interceptor";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
-  const options = new DocumentBuilder()
-    .setTitle('Hello World example')
-    .setDescription('The Hello World API description')
-    .setVersion('1.0')
-    .addTag('hello-world')
-    .build();
-  const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('docs', app, document);
+  app.enableCors();
+  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new HttpExceptionFilter());
+  app.useGlobalInterceptors(new ResponseInterceptor());
 
-  await app.listen(configService.get<number>('config.port'));
+  await app.listen(configService.get<number>('config.port'), '0.0.0.0', () => {
+    Logger.log(
+      `app listening at ${configService.get<number>('config.port')} with env ${configService.get<number>(
+        'config.environment'
+      )}`,
+      'main.ts'
+    );
+  });
 }
 
 bootstrap();
