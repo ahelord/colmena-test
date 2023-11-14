@@ -14,7 +14,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     switch (exception.constructor) {
       case HttpException:
         status = exception.getStatus();
-        message = exception.message;
+        message = exception.getResponse()['message'];
         break;
       case QueryFailedError:
       case EntityNotFoundError:
@@ -24,7 +24,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         break;
       default:
         status = exception.getStatus();
-        message = exception.message;
+        message = exception.getResponse()['message'];
     }
 
     response.status(status).json({ status, message });

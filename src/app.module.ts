@@ -15,6 +15,7 @@ import TypeormConfig from './config/typeorm.config';
 import { CommonModule } from './common/common.module';
 import { TodosModule } from './todos/todos.module';
 import { PatientModule } from './patient/patient.module';
+import { DoctorModule } from './doctor/doctor.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { PatientModule } from './patient/patient.module';
     CommonModule,
     TodosModule,
     PatientModule,
+    DoctorModule,
   ],
   controllers: [AppController],
   providers: [AppService],
