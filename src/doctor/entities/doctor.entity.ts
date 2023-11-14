@@ -33,8 +33,8 @@ export class Doctor {
   @Column({ nullable: false })
   admissionAt: Date;
 
-  @OneToMany(() => Appointment, appointment => appointment.doctor,{
-    eager:true
+  @OneToMany(() => Appointment, appointment => appointment.doctor, {
+    eager: true,
   })
   appointments: Appointment[];
 
