@@ -1,7 +1,7 @@
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from 'typeorm';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Appointment } from '../../appointment/entities/appointment.entity';
 
 @Entity('doctor')
-
 export class Doctor {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -27,11 +27,16 @@ export class Doctor {
   @Column({ nullable: false, length: 90 })
   city: string;
 
-  @Column({ nullable: false})
+  @Column({ nullable: false })
   professionalCard: string;
 
   @Column({ nullable: false })
   admissionAt: Date;
+
+  @OneToMany(() => Appointment, appointment => appointment.doctor,{
+    eager:true
+  })
+  appointments: Appointment[];
 
   @CreateDateColumn()
   createdAt: Date;

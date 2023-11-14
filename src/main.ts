@@ -5,13 +5,13 @@ import './config/dotenv.config';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import TypeormConfig from './config/typeorm.config';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
-import {ResponseInterceptor} from "./common/interceptors/response.interceptor";
+import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
   app.enableCors();
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(new ResponseInterceptor());
 

@@ -34,12 +34,13 @@ export class PatientService {
     return patient;
   }
 
-  updatePatient(id: string, patientPutRequestDto: PatientPutRequestDto) {
-    const patient = this.patientRepository.save({
+  async updatePatient(id: string, patientPutRequestDto: PatientPutRequestDto) {
+    const patient = await this.patientRepository.findOne(id);
+    if (!patient) throw new BadRequestException(Errors.PATIENT_NOT_FOUND);
+    return this.patientRepository.save({
       id,
       ...patientPutRequestDto,
     });
-    return patient;
   }
 
   async removePatient(id: string): Promise<IsDeletedDto> {

@@ -24,18 +24,19 @@ export class DoctorService {
     return await this.doctorRepository.find();
   }
 
-  async findDoctor(id: string) {
-    const doctor = await this.doctorRepository.findOne(id);
+  async findDoctor(identificationDocument: string) {
+    const doctor = await this.doctorRepository.findOne({ identificationDocument });
     if (!doctor) throw new NotFoundException(Errors.DOCTOR_NOT_FOUND);
     return doctor;
   }
 
   async updateDoctor(id: string, doctorPutRequestDto: DoctorPutRequestDto) {
-    const doctor = await this.doctorRepository.save({
+    const doctor = await this.doctorRepository.findOne(id);
+    if (!doctor) throw new BadRequestException(Errors.DOCTOR_NOT_FOUND);
+    return this.doctorRepository.save({
       id,
       ...doctorPutRequestDto,
     });
-    return doctor;
   }
 
   async removeDoctor(id: string) {

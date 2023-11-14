@@ -4,5 +4,7 @@ export enum Errors {
   INTERNAL_ERROR = 'Ocurrió un error interno. Intente nuevamente',
   DOCTOR_NOT_FOUND = 'El medico no existe',
   PATIENT_NOT_FOUND = 'El paciente no existe',
-
+  APPOINTMENT_NOT_FOUND = 'La cita no existe',
+  APPOINTMENT_IN_PAST = 'La fecha de la cita esta en el pasado',
+  APPOINTMENT_NO_AVAILABILITY = 'No hay disponibilidad para esa fecha',
 }

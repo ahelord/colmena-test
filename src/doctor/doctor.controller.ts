@@ -17,9 +17,9 @@ export class DoctorController {
     return await this.doctorService.findDoctors();
   }
 
-  @Get(':id')
-  async getDoctor(@Param('id') id: string) {
-    return await this.doctorService.findDoctor(id);
+  @Get(':identificationDocument')
+  async getDoctor(@Param('identificationDocument') identificationDocument: string) {
+    return await this.doctorService.findDoctor(identificationDocument);
   }
 
   @Put(':id')

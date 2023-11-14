@@ -1,8 +1,16 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Appointment } from '../../appointment/entities/appointment.entity';
 
 @Entity('patient')
 export class Patient extends BaseEntity {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -26,6 +34,9 @@ export class Patient extends BaseEntity {
 
   @Column({ nullable: false, length: 90 })
   city: string;
+
+  @OneToMany(() => Appointment, appointment => appointment.doctor)
+  appointments: Appointment[];
 
   @CreateDateColumn()
   createdAt: Date;
