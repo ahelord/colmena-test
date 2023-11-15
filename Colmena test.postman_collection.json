@@ -1,0 +1,916 @@
+{
+	"info": {
+		"_postman_id": "8244cd4a-52ff-40f1-8616-3d31500fe10b",
+		"name": "Colmena test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1070998"
+	},
+	"item": [
+		{
+			"name": "Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzM2Y5ZTVjLWJmYTUtNDJjZi05Njc3LTg1NTlmYjY1NDUzNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI4MzNmOWU1Yy1iZmE1LTQyY2YtOTY3Ny04NTU5ZmI2NTQ1MzciLCJpYXQiOjE3MDAwMjc1NjAsImV4cCI6MTcwMDAzMTE2MH0.9JK0U9PcDIM3X57Lmpku2af1p5jwXwwWK5DkyVzITJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"6\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doctorIdentification\": \"14\",\r\n    \"patientIdentification\": \"3\",\r\n    \"scheduleAt\": \"2023-11-16T21:26:26.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMjQ1ODUsImV4cCI6MTcwMDAyODE4NX0.TATDmEryfDDIVHQ6vSTlSh1kFbwoqK6vU63yDe4rlZc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"7\",\r\n    \"firstName\": \"string\",\r\n    \"lastName\": \"string\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"string\",\r\n    \"professionalCard\": \"string\",\r\n    \"admissionAt\": \"2023-11-14\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/doctor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medical order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"3\",\r\n    \"specialty\": \"string\",\r\n    \"appointmentId\": \"9cf1a7d3-c0d1-4ffd-b1c3-0dfea499f852\",\r\n    \"expiresIn\": \"2023-11-15T21:26:26.000Z\",\r\n    \"medications\":[\r\n        \"9afa439a-a1fd-4dcb-9d47-d1f346f21851\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/medical-order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"medical-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medicament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"3\",\r\n    \"name\": \"string\",\r\n    \"diseases\":[\"cancer\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/medicament",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"medicament"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medicament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"volox\",\r\n    \"name\": \"volox 450\",\r\n    \"diseases\":[\"cancer\",\"asma\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/medicament/e71a988e-2164-428c-a734-48d695bdcd74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"medicament",
+						"e71a988e-2164-428c-a734-48d695bdcd74"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/patient/c89e6b55-ec82-45c5-a484-1b87bdb1d71a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"patient",
+						"c89e6b55-ec82-45c5-a484-1b87bdb1d71a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"doctorIdentification\": \"3\",\r\n    \"patientIdentification\": \"2\",\r\n    \"scheduleAt\": \"2023-11-16T23:26:26.000Z\",\r\n    \"status\":\"NOT_ASSIST\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/appointment/b5945ea5-ecb0-4520-b1cf-8db1d34323c3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"appointment",
+						"b5945ea5-ecb0-4520-b1cf-8db1d34323c3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTQ5MzMsImV4cCI6MTcwMDAxODUzM30.5zUqmAQPJYg6X8ML-2WJ-U41jxZv5eADRJyeexqKZ6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"14\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/doctor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"doctor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patient",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMjI4ODQsImV4cCI6MTcwMDAyNjQ4NH0.nPhL8Ft0pBvL-hjIEBc1yqS67OHtmyvtyLLmA6xRqsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/patient/e2cf4eea-ca29-493e-9c45-f81186c7effa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"patient",
+						"e2cf4eea-ca29-493e-9c45-f81186c7effa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Doctor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/doctor/591e4d5c-c315-4899-8dfb-01c29a4019eb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"doctor",
+						"591e4d5c-c315-4899-8dfb-01c29a4019eb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/appointment/9cf1a7d3-c0d1-4ffd-b1c3-0dfea499f852",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"appointment",
+						"9cf1a7d3-c0d1-4ffd-b1c3-0dfea499f852"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medicament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/medicament/9afa439a-a1fd-4dcb-9d47-d1f346f21851",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"medicament",
+						"9afa439a-a1fd-4dcb-9d47-d1f346f21851"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Doctors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/doctor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"doctor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg5MzIsImV4cCI6MTcwMDAyMjUzMn0.qCNDlGAJfEYutgL15TL50bADslKjDMSW-WKUxCmeOqg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/appointment?doctorIdentification=14&patientIdentification=1&scheduleAt=2023-11-14T21:10:10.000Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"appointment"
+					],
+					"query": [
+						{
+							"key": "doctorIdentification",
+							"value": "14"
+						},
+						{
+							"key": "patientIdentification",
+							"value": "1"
+						},
+						{
+							"key": "scheduleAt",
+							"value": "2023-11-14T21:10:10.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medicaments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg5MzIsImV4cCI6MTcwMDAyMjUzMn0.qCNDlGAJfEYutgL15TL50bADslKjDMSW-WKUxCmeOqg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/medicament",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"medicament"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Doctors available",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/appointment/doctors?scheduleAt=2023-11-15T21:10:10.000Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"appointment",
+						"doctors"
+					],
+					"query": [
+						{
+							"key": "scheduleAt",
+							"value": "2023-11-15T21:10:10.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMjM1NzUsImV4cCI6MTcwMDAyNzE3NX0.fVbZ5dPW00Pgr43OHcwaOqlo9q0jFpQ1r0VecwPd8yU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/patient/0587de0d-1d5e-4108-acfc-0358a054ec44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"patient",
+						"0587de0d-1d5e-4108-acfc-0358a054ec44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Appointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/appointment/c5864a44-efc6-4acd-ac5c-e342ca1d17ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"appointment",
+						"c5864a44-efc6-4acd-ac5c-e342ca1d17ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medicament",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/medicament/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"medicament",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Doctor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDAyMjE4MH0.shMpZCqEDL1H8IbKsqz3bDsOjIhzu0n3grE5zZPfSOw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationDocument\": \"12\",\r\n    \"firstName\": \"Leo\",\r\n    \"lastName\": \"rodri\",\r\n    \"email\": \"patient2@test.com\",\r\n    \"phone\": \"string\",\r\n    \"address\": \"string\",\r\n    \"city\": \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/doctor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"doctor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test3@test.com\",\r\n    \"password\":\"A^S1B%JVo9p!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/auth/sign-up",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"auth",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"test3@test.com\",\r\n    \"password\":\"A^S1B%JVo9p!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "access token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDA0MDE4MH0.x2qvY1EryMQ6Cc7kEF_ENjGmeqCHKAzFibfJK9ZMyK4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8001/auth/access-token",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"auth",
+						"access-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,60 +1,3 @@
-<p align="center">
-  <a href="https://nestjs.com/" target="blank"><img src="https://github.com/nestjs/docs.nestjs.com/blob/master/src/assets/logo-small.svg" height="100" alt="Nest logo" /></a>
-  <a href="https://typeorm.io/" target="blank"><img src="https://avatars.githubusercontent.com/u/20165699" height="100" alt="TypeORM logo" /></a>
-  <a href="https://www.postgresql.org/" target="blank"><img src="https://www.postgresql.org/media/img/about/press/elephant.png" height="100" alt="PostgreSQL logo" /></a>
-  <a href="https://jestjs.io/" target="blank"><img src="https://github.com/facebook/jest/blob/main/website/static/img/jest.png" height="100" alt="Jest logo" /></a>
-  <a href="https://prettier.io/" target="blank"><img src="https://github.com/prettier/prettier/blob/main/website/static/icon.png" height="100" alt="Prettier logo" /></a>
-  <a href="https://eslint.org/" target="blank"><img src="https://github.com/eslint/website/blob/master/assets/img/logo.svg" height="100" alt="ESLint logo" /></a>
-</p>
-
-<p align="center">
-  <a href="https://docs.docker.com/" target="blank"><img src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png" height="60" alt="Docker logo" /></a>
-  <a href="https://github.com/features/actions" target="blank"><img src="https://avatars.githubusercontent.com/u/44036562" height="60" alt="GitHub Actions logo" /></a>
-</p>
-
-# Nest 8 - Boilerplate
-
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![GitHub issues](https://img.shields.io/github/issues/smarlhens/nest-boilerplate)](https://github.com/ahelord/nest-boilerplate/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/smarlhens/nest-boilerplate)](https://github.com/ahelord/nest-boilerplate/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/smarlhens/nest-boilerplate)](https://github.com/ahelord/nest-boilerplate/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/smarlhens/nest-boilerplate)](https://github.com/ahelord/nest-boilerplate/network)
-[![GitHub contributors](https://img.shields.io/github/contributors/smarlhens/nest-boilerplate)](https://github.com/ahelord/nest-boilerplate/graphs/contributors)
-[![GitHub license](https://img.shields.io/github/license/smarlhens/nest-boilerplate)](https://github.com/ahelord/nest-boilerplate)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ahelord/nest-boilerplate)
-![GitHub repo size](https://img.shields.io/github/repo-size/ahelord/nest-boilerplate)
-
-## Table of contents
-
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [What's in the box ?](#whats-in-the-box-)
-  - [CircleCI](#circleci)
-  - [Commitizen](#commitizen)
-  - [Commitlint](#commitlint)
-  - [Docker Compose](#docker-compose)
-  - [ESLint](#eslint)
-  - [GitHub Actions](#github-actions)
-  - [Husky](#husky)
-  - [Lint-staged](#lint-staged)
-  - [Prettier](#prettier)
-  - [Travis CI](#travis-ci)
-- [Running the app](#running-the-app)
-- [Code scaffolding](#code-scaffolding)
-- [Build](#build)
-- [Test](#test)
-- [Further help](#further-help)
-- [Useful Docker commands](#useful-docker-commands)
-
----
-
-## Getting started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ### Prerequisites
 
 What things you need to install the software and how to install them :
@@ -71,222 +14,106 @@ What things you need to install the software and how to install them :
 1. Clone the git repository
 
    ```bash
-   git clone https://github.com/ahelord/nest-boilerplate.git
+   git clone https://github.com/ahelord/colmena-test.git
    ```
 
-1. Go into the project directory
+2. Go into the project directory
 
    ```bash
-   cd nest-boilerplate/
+   cd colmena-test/
    ```
 
-1. Checkout working branch
-
-   ```bash
-   git checkout <branch>
-   ```
-
-1. Install NPM dependencies
+3. Install NPM dependencies
 
    ```bash
    npm i
    ```
 
-1. Copy `.env.dist` to `.env`
+### Run test
 
    ```bash
-   cp .env .env
+    npm run test
    ```
 
-1. Replace the values of the variables with your own
-
-1. Create Docker images and launch them
+### Run locally in docker
 
    ```bash
    docker-compose up -d --build
    ```
+This command will run the [docker-compose.yml](docker-compose.yml) that runs the containers:
+- postgres-colmena: is the postgres database
+- nodejs-colmena: is the nest.js service that runs on port 8001
 
----
+By downloading this file [Colmena test.postman_collection.json](Colmena%20test.postman_collection.json)   you can import it into Postman and consume all the endpoints created
 
-## What's in the box ?
+Compose file uses `.env.docker`.
 
-
-### Commitizen
-
-[commitizen](https://github.com/commitizen/cz-cli) is a command line utility that makes it easier to create commit messages following the [conventional commit format](https://conventionalcommits.org) specification.
-
-Use `git cz` instead of `git commit` to use commitizen.
-
-[![Add and commit with Commitizen](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)](https://github.com/commitizen/cz-cli/raw/master/meta/screenshots/add-commit.png)
-
-**Configuration file**: [`.czrc`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.czrc).
-
----
-
-### Commitlint
-
-[commitlint](https://github.com/conventional-changelog/commitlint) checks if your commit messages meet the [conventional commit format](https://conventionalcommits.org).
-
-**Configuration file**: [`.commitlintrc.json`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.commitlintrc.json).
-
-In general the pattern mostly looks like this:
-
-```sh
-type(scope?): subject  #scope is optional
-```
-
-Are you a good `commitizen` ?
-
----
-
-### Docker Compose
-
-**Compose file**: [`docker-compose.yml`](https://github.com/smarlhens/nest7-boilerplate/blob/master/docker-compose.yml).
-
-Containers :
-
-- PostgreSQL 14
-- pgAdmin 6
-
-Compose file uses `.env`.
-
----
-
-### ESLint
-
-[ESLint](https://eslint.org/) is a fully pluggable tool for identifying and reporting on patterns in JavaScript.
-
-**Configuration file**: [`.eslintrc.js`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.eslintrc.js).
-
-For more configuration options and details, see the [configuration docs](https://eslint.org/docs/user-guide/configuring).
-
----
-
-
-### Husky
-
-[Husky](https://github.com/typicode/husky) is a package that helps you create Git hooks easily.
-
-**Configuration folder**: [`.husky`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.husky/).
-
----
-
-### Lint-staged
-
-[Lint-staged](https://github.com/okonet/lint-staged) is a Node.js script that allows you to run arbitrary scripts against currently staged files.
-
-**Configuration file**: [`.lintstagedrc.json`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.lintstagedrc.json).
-
----
-
-### Prettier
-
-[Prettier](https://prettier.io/) is an opinionated code formatter.
-
-**Configuration file**: [`.prettierrc`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.prettierrc).  
-**Ignore file**: [`.prettierignore`](https://github.com/smarlhens/nest7-boilerplate/blob/master/.prettierignore).
-
-For more configuration options and details, see the [configuration docs](https://prettier.io/docs/en/configuration.html).
-
----
-
-
-## Running the app
-
-### development
-
-```bash
-npm run start
-```
-
-### watch mode
-
-```bash
-npm run start:dev
-```
-
-### production mode
-
-```bash
-npm run start:prod
-```
-
----
-
-## Code scaffolding
-
-Run `nest generate|g <schematic> <name> [options]` to generate a new Nest Element.
-
----
-
-## Build
-
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
----
-
-## Test
-
-### unit tests
-
-```bash
-npm run test
-```
-
-### e2e tests
-
-```bash
-npm run test:e2e
-```
-
-### test coverage
-
-```bash
-npm run test:cov
-```
-
----
-
-## Further help
-
-To get more help on the Nest CLI use `nest --help` or go check out the [Nest CLI README](https://github.com/nestjs/nest-cli/blob/master/README.md).
-
----
-
-## Useful Docker commands
-
-1. If you want to check that all containers are up :
+### Run locally
 
    ```bash
-   docker-compose ps
+   npm run start
    ```
 
-1. Other Docker commands :
 
-   ```bash
-   # Start Docker
-   docker-compose start
+### How use
 
-   # Restart Docker
-   docker-compose restart
+#### 1. Consume sign-up endpoint
+```bash
+curl --location 'localhost:8001/auth/sign-up' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"test3@test.com",
+    "password":"A^S1B%JVo9p!"
+}'
+```
+- Copy access token of response
+```bash
+{
+    "statusCode": 201,
+    "data": {
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzM2Y5ZTVjLWJmYTUtNDJjZi05Njc3LTg1NTlmYjY1NDUzNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI4MzNmOWU1Yy1iZmE1LTQyY2YtOTY3Ny04NTU5ZmI2NTQ1MzciLCJpYXQiOjE3MDAwMjc1NjAsImV4cCI6MTcwMDAzMTE2MH0.9JK0U9PcDIM3X57Lmpku2af1p5jwXwwWK5DkyVzITJQ",
+        "accessTokenExpiresIn": "2023-11-15T06:52:40.206Z",
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzM2Y5ZTVjLWJmYTUtNDJjZi05Njc3LTg1NTlmYjY1NDUzNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI4MzNmOWU1Yy1iZmE1LTQyY2YtOTY3Ny04NTU5ZmI2NTQ1MzciLCJpYXQiOjE3MDAwMjc1NjAsImV4cCI6MTcwMDA0OTE2MH0.iyiSl8zd9uToXItpCWnosyyj_Tgrapka21666Ys1BDE"
+    }
+}
+```
 
-   # Stop Docker
-   docker-compose stop
-
-   # Delete all containers
-   docker rm $(docker ps -aq)
-
-   # Delete all images
-   docker rmi $(docker images -q)
-   ```
-
-1. How to get a Docker container's IP address from the host ?
-
-   ```bash
-   docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container>
-   docker inspect $(docker ps -f name=<service> -q) | grep IPAddress
-   ```
-
----
+#### 2. You can refresh the token that by default expires in 60 minutes
 
 
+```bash
+curl --location 'localhost:8001/auth/access-token' \
+--header 'Content-Type: application/json' \
+--data '{
+    "refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ1NjUwNTkwLTk3MzMtNDdjOS04ODc1LTE4Njg4ZmYxNGQwNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI0NTY1MDU5MC05NzMzLTQ3YzktODg3NS0xODY4OGZmMTRkMDciLCJpYXQiOjE3MDAwMTg1ODAsImV4cCI6MTcwMDA0MDE4MH0.x2qvY1EryMQ6Cc7kEF_ENjGmeqCHKAzFibfJK9ZMyK4"
+}'
+
+```
+
+#### 3. If the refresh token expires you can log in
+
+```bash
+curl --location 'localhost:8001/auth/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"test3@test.com",
+    "password":"A^S1B%JVo9p!"
+}'
+```
+
+#### 4. Put token in header Authorization
+
+```bash
+curl --location 'http://localhost:8001/patient' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgzM2Y5ZTVjLWJmYTUtNDJjZi05Njc3LTg1NTlmYjY1NDUzNyIsImVtYWlsIjoidGVzdDNAdGVzdC5jb20iLCJzdWIiOiI4MzNmOWU1Yy1iZmE1LTQyY2YtOTY3Ny04NTU5ZmI2NTQ1MzciLCJpYXQiOjE3MDAwMjc1NjAsImV4cCI6MTcwMDAzMTE2MH0.9JK0U9PcDIM3X57Lmpku2af1p5jwXwwWK5DkyVzITJQ' \
+--data-raw '{
+    "identificationDocument": "6",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "patient2@test.com",
+    "phone": "string",
+    "address": "string",
+    "city": "string"
+}'
+```
