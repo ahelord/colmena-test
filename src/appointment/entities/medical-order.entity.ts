@@ -1,5 +1,15 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  JoinTable,
+} from 'typeorm';
 import { Appointment } from './appointment.entity';
+import { Medicament } from '../../medicament/entities/medicament.entity';
 
 @Entity('medical_order')
 export class MedicalOrder {
@@ -17,6 +27,10 @@ export class MedicalOrder {
 
   @Column({ nullable: false })
   expiresIn: Date;
+
+  @ManyToMany(() => Medicament, { eager: true })
+  @JoinTable()
+  medications: Medicament[];
 
   @CreateDateColumn()
   createdAt: Date;

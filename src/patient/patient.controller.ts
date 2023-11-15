@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/
 import { PatientService } from './patient.service';
 import { PatientPostRequestDto } from './dto/patient-post-request.dto';
 import { PatientPutRequestDto } from './dto/patient-put-request.dto';
+import { ParamIdDto } from '../common/dtos/param-id.dto';
 
 @Controller('patient')
 export class PatientController {
@@ -13,17 +14,17 @@ export class PatientController {
   }
 
   @Get(':id')
-  async getPatient(@Param('id') id: string) {
-    return await this.patientService.getPatient(id);
+  async getPatient(@Param() paramIdDto: ParamIdDto) {
+    return await this.patientService.getPatient(paramIdDto.id);
   }
 
   @Put(':id')
-  async putPatient(@Param('id') id: string, @Body() patientPutRequestDto: PatientPutRequestDto) {
-    return await this.patientService.updatePatient(id, patientPutRequestDto);
+  async putPatient(@Param() paramIdDto: ParamIdDto, @Body() patientPutRequestDto: PatientPutRequestDto) {
+    return await this.patientService.updatePatient(paramIdDto.id, patientPutRequestDto);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
-    return await this.patientService.removePatient(id);
+  async remove(@Param() paramIdDto: ParamIdDto) {
+    return await this.patientService.removePatient(paramIdDto.id);
   }
 }

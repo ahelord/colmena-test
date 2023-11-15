@@ -1,6 +1,4 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { AppointmentService } from './appointment.service';
-import { AppointmentPostRequestDto } from './dto/appointment-post-request.dto';
 import { MedicalOrderService } from './medical-order.service';
 import {MedicalOrderPostRequestDto} from "./dto/medical-order-post-request.dto";
 

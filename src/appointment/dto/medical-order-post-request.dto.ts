@@ -1,4 +1,4 @@
-import { IsDate, IsNumberString, IsString, IsUUID, MaxLength } from 'class-validator';
+import { ArrayMinSize, IsArray, IsDate, IsString, IsUUID } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class MedicalOrderPostRequestDto {
@@ -14,4 +14,9 @@ export class MedicalOrderPostRequestDto {
   @Type(() => Date)
   @IsDate()
   expiresIn: Date;
+
+  @IsUUID(undefined, { each: true })
+  @IsArray()
+  @ArrayMinSize(1)
+  medications: string[];
 }

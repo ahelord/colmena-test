@@ -8,10 +8,17 @@ import { DoctorRepository } from '../doctor/repositories/doctor.repository';
 import { MedicalOrderController } from './medical-order.controller';
 import { MedicalOrderService } from './medical-order.service';
 import { MedicalOrderRepository } from './repositories/medical-order.repository';
+import { MedicamentRepository } from '../medicament/repositories/medicament.repository';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([AppointmentRepository, PatientRepository, DoctorRepository, MedicalOrderRepository]),
+    TypeOrmModule.forFeature([
+      AppointmentRepository,
+      PatientRepository,
+      DoctorRepository,
+      MedicalOrderRepository,
+      MedicamentRepository,
+    ]),
   ],
   controllers: [AppointmentController, MedicalOrderController],
   providers: [AppointmentService, MedicalOrderService],
