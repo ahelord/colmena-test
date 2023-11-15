@@ -3,7 +3,6 @@ import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import './config/dotenv.config';
 import { Logger, ValidationPipe } from '@nestjs/common';
-import TypeormConfig from './config/typeorm.config';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 

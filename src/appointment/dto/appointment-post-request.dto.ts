@@ -1,4 +1,4 @@
-import { IsDate, IsDateString, IsEmail, IsNumberString, IsString, MaxLength } from 'class-validator';
+import { IsDate, IsNumberString, MaxLength } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class AppointmentPostRequestDto {

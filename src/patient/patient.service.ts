@@ -1,17 +1,13 @@
 import {
   BadRequestException,
-  HttpStatus,
   Injectable,
-  InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
 import { PatientPostRequestDto } from './dto/patient-post-request.dto';
 import { PatientPutRequestDto } from './dto/patient-put-request.dto';
-import { TodosRepository } from '../todos/repositories/todos.repository';
 import { PatientRepository } from './repositories/patient.repository';
 import { Errors } from '../common/entities/errors';
 import { IsDeletedDto } from '../common/dtos/is-deleted.dto';
-import { raw } from 'express';
 
 @Injectable()
 export class PatientService {

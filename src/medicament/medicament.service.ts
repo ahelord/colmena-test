@@ -1,10 +1,7 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { MedicamentPostRequestDto } from './dto/medicament-post-request.dto';
 import { MedicamentPutRequestDto } from './dto/medicament-put-request.dto';
-import { DoctorRepository } from '../doctor/repositories/doctor.repository';
-import { DoctorPostRequestDto } from '../doctor/dto/doctor-post-request.dto';
 import { Errors } from '../common/entities/errors';
-import { DoctorPutRequestDto } from '../doctor/dto/doctor-put-request.dto';
 import { IsDeletedDto } from '../common/dtos/is-deleted.dto';
 import { MedicamentRepository } from './repositories/medicament.repository';
 

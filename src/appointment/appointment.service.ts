@@ -94,7 +94,7 @@ export class AppointmentService {
     const now = new Date();
     if (appointmentPutRequestDto.scheduleAt <= now) throw new BadRequestException(Errors.APPOINTMENT_IN_PAST);
 
-    let entity = {
+    const entity = {
       id,
     } as Appointment;
 
