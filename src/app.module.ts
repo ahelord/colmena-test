@@ -17,6 +17,7 @@ import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { AppointmentModule } from './appointment/appointment.module';
 import { MedicamentModule } from './medicament/medicament.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { MedicamentModule } from './medicament/medicament.module';
         return TypeormConfig as TypeOrmModuleOptions;
       },
     }),
+    AuthModule,
     CommonModule,
     PatientModule,
     DoctorModule,
