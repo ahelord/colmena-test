@@ -53,7 +53,7 @@ Compose file uses `.env.docker`.
    ```bash
    npm run start
    ```
-
+Locally uses .env
 
 ### How use
 
