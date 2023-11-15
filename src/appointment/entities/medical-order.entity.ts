@@ -16,7 +16,7 @@ export class MedicalOrder {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Appointment, appointment => appointment.medicalOrders)
+  @ManyToOne(() => Appointment, appointment => appointment.medicalOrders, { onDelete: 'CASCADE' })
   appointment: Appointment;
 
   @Column({ nullable: false })

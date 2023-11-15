@@ -17,10 +17,10 @@ export class Appointment {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Doctor, doctor => doctor.appointments)
+  @ManyToOne(() => Doctor, doctor => doctor.appointments, { onDelete: 'CASCADE' })
   doctor: Doctor;
 
-  @ManyToOne(() => Patient, patient => patient.appointments)
+  @ManyToOne(() => Patient, patient => patient.appointments, { onDelete: 'CASCADE' })
   patient: Patient;
 
   @Column({ type: 'enum', enum: AppointmentStatus, nullable: true, default: AppointmentStatus.SCHEDULED })

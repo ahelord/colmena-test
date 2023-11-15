@@ -24,7 +24,7 @@ export class PatientController {
   }
 
   @Delete(':id')
-  async remove(@Param() paramIdDto: ParamIdDto) {
+  async deletePatient(@Param() paramIdDto: ParamIdDto) {
     return await this.patientService.removePatient(paramIdDto.id);
   }
 }
